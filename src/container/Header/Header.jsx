@@ -25,7 +25,6 @@ const Header = () => {
 
     client.fetch(query).then((data) => {
       setHeaderData(data[0]);
-      console.log(headerData);
     });
   }, []);
 

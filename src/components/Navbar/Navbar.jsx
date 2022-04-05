@@ -3,6 +3,7 @@ import "./Navbar.scss";
 import { images } from "../../constants";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -38,6 +39,22 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://github.com/TrietTruong211"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiFillGithub />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/triet-truong-minh-847971189"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiFillLinkedin />
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}
