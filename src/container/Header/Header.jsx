@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { images } from "../../constants";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
-import BackgroundAnimation from "../../BackgroundAnimation/BackgroundAnimation";
+import BackgroundAnimation from "..//../components/BackgroundAnimation/BackgroundAnimation";
 
 const scaleVariants = {
   whileInView: {

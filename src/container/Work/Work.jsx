@@ -6,7 +6,7 @@ import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 
 const Work = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Shopify");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
