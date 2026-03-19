@@ -16,7 +16,9 @@ const Work = () => {
 
     client.fetch(query).then((data) => {
       setWorks(data);
-      setFilterWork(data);
+      // Filter to show only Shopify items by default
+      const shopifyWorks = data.filter((work) => work.tags.includes("Shopify"));
+      setFilterWork(shopifyWorks);
     });
   }, []);
 
