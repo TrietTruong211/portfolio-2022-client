@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Footer.scss";
 import { images } from "../../constants";
 import { AppWrap, MotionWrap } from "../../wrapper";
@@ -12,6 +12,7 @@ const Footer = () => {
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [footerData, setFooterData] = useState({});
 
   const { name, email, message } = formData;
 
@@ -35,6 +36,15 @@ const Footer = () => {
     setLoading(false);
   };
 
+  useEffect(() => {
+    const query = '*[_type == "footer"]';
+  
+      client.fetch(query).then((data) => {
+        console.log('Footer data fetched:', data);
+        setFooterData(data[0]);
+      });
+    }, []);
+
   return (
     <>
       <h2 className="head-text">
@@ -43,14 +53,14 @@ const Footer = () => {
       <div className="app__footer-cards">
         <div className="app__footer-card">
           <img src={images.email} alt="email" />
-          <a href="mailto:triet.truongminh211@gmail.com" className="p-text">
-            triet.truongminh211@gmail.com
+          <a href={`mailto:${footerData?.email}`} className="p-text">
+            {footerData?.email || "triet.truongminh211@gmail.com"}
           </a>
         </div>
         <div className="app__footer-card">
           <img src={images.mobile} alt="email" />
-          <a href="tel: +61415092221" className="p-text">
-            +61 415 092 221
+          <a href={`tel:${footerData?.phoneNumber}`} className="p-text">
+            {footerData?.phoneNumber || "+61 415 092 221"}
           </a>
         </div>
       </div>
