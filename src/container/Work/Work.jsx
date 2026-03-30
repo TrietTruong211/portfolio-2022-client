@@ -36,6 +36,17 @@ const Work = () => {
     }, 500);
   };
 
+  // Consolidate unique tags from works and add 'All' at the end
+  const filterKeys = React.useMemo(() => {
+    const tagSet = new Set();
+    works.forEach(work => {
+      if (Array.isArray(work.tags)) {
+        work.tags.forEach(tag => tagSet.add(tag));
+      }
+    });
+    return [...tagSet, "All"];
+  }, [works]);
+
   return (
     <>
       <h2 className="head-text">
@@ -44,7 +55,7 @@ const Work = () => {
       </h2>
 
       <div className="app__work-filter">
-        {["Shopify", "Crypto", "Angular", "React", "All"].map((item, index) => (
+        {filterKeys.map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
