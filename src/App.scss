@@ -199,3 +199,77 @@
     text-align: end;
   }
 }
+
+// ─── Chat Widget ───────────────────────────────────────────────────────────────
+
+// Bouncing dot animation used in the typing indicator
+@keyframes chatWidgetDotBounce {
+  0%, 60%, 100% { transform: translateY(0);    opacity: 0.4; }
+  30%           { transform: translateY(-5px); opacity: 1;   }
+}
+
+// Individual animated dot inside the typing indicator
+.chat-widget__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #7a8494;
+  animation: chatWidgetDotBounce 1.2s ease-in-out infinite;
+  margin: 0 2px;
+}
+
+// Starter prompt chips
+.chat-widget__chip {
+  &:hover:not(:disabled) {
+    background-color: #303030 !important;
+    border-color: rgba(19, 173, 199, 0.45) !important;
+    color: #ffffff !important;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+  }
+}
+
+// Send button
+.chat-widget__send-button:hover:not(:disabled) {
+  background-color: #0f94aa !important;
+}
+
+// Text input focus ring
+.chat-widget__input:focus {
+  border-color: rgba(19, 173, 199, 0.55) !important;
+}
+
+// Floating toggle button
+.chat-widget__toggle-button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+// Close button inside the panel header
+.chat-widget__close-button:hover {
+  color: #d1d5db !important;
+}
+
+// Custom scrollbar styling for the message list
+.chat-widget__messages {
+  &::-webkit-scrollbar       { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: #2e2e2e; border-radius: 2px; }
+}
+
+// On mobile the panel expands to fill the full screen
+@media (max-width: 480px) {
+  .chat-widget__panel {
+    position: fixed !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+    max-height: 100dvh !important;
+  }
+}
