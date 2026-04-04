@@ -81,7 +81,7 @@ const Testimonial = () => {
             transition={{ duration: 0.5, type: "tween" }}
             key={brand._id}
           >
-            <a href={brand.url ? brand.url : "#"} target="_blank">
+            <a href={brand.url ? brand.url : "#"} target="_blank" rel="noreferrer">
               <img src={urlFor(brand.imgUrl)} alt={brand.name} />
             </a>
           </motion.div>
